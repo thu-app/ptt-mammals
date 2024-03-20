@@ -76,7 +76,6 @@
         <script src="data/_37.js"></script>
         <script src="data/_38.js"></script>
         <script src="data/_39.js"></script>
-        <script src="data/__40.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -224,6 +223,26 @@
                 mouseover: highlightFeature,
             });
             var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">PipLine</th>\
+                        <td>' + (feature.properties['PipLine'] !== null ? autolinker.link(feature.properties['PipLine'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">E</th>\
+                        <td>' + (feature.properties['E'] !== null ? autolinker.link(feature.properties['E'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">N</th>\
+                        <td>' + (feature.properties['N'] !== null ? autolinker.link(feature.properties['N'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">dis500m</th>\
+                        <td>' + (feature.properties['dis500m'] !== null ? autolinker.link(feature.properties['dis500m'].toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
             var popup = layer.getPopup();
@@ -270,7 +289,12 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="Stationt"colspan="2"><strong>Stationt</strong><br />' + (feature.properties['Stationt'] !== null ? autolinker.link(feature.properties['Stationt'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">id</th>\
+                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Stationt</th>\
+                        <td>' + (feature.properties['Stationt'] !== null ? autolinker.link(feature.properties['Stationt'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -289,7 +313,7 @@
             iconUrl: 'markers/Station_3.svg',
             iconSize: [15.2, 15.2]
         }),
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Station_3');
@@ -297,7 +321,7 @@
         map.getPane('pane_Station_3').style['mix-blend-mode'] = 'normal';
         var layer_Station_3 = new L.geoJson(json_Station_3, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Station_3',
             layerName: 'layer_Station_3',
             pane: 'pane_Station_3',
@@ -3405,7 +3429,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,158,23,1.0)',
+                fillColor: 'rgba(255,0,0,1.0)',
                 interactive: true,
             }
         }
@@ -3495,7 +3519,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(231,113,72,1.0)',
+                fillColor: 'rgba(255,251,0,1.0)',
                 interactive: true,
             }
         }
@@ -3523,92 +3547,6 @@
 
         bounds_group.addLayer(layer__39);
         cluster__39.addTo(map);
-        function pop___40(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (i in e.target._eventParents) {
-                        e.target._eventParents[i].resetStyle(e.target);
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">ลำดับ</th>\
-                        <td>' + (feature.properties['ลำดับ'] !== null ? autolinker.link(feature.properties['ลำดับ'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">กลุ่มสิ่งม</th>\
-                        <td>' + (feature.properties['กลุ่มสิ่งม'] !== null ? autolinker.link(feature.properties['กลุ่มสิ่งม'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ชื่อวิทยาศ</th>\
-                        <td>' + (feature.properties['ชื่อวิทยาศ'] !== null ? autolinker.link(feature.properties['ชื่อวิทยาศ'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">ชื่อสามัญ</th>\
-                        <td>' + (feature.properties['ชื่อสามัญ'] !== null ? autolinker.link(feature.properties['ชื่อสามัญ'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Zone</th>\
-                        <td>' + (feature.properties['Zone'] !== null ? autolinker.link(feature.properties['Zone'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Point</th>\
-                        <td>' + (feature.properties['Point'] !== null ? autolinker.link(feature.properties['Point'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">X</th>\
-                        <td>' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Y</th>\
-                        <td>' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-            var popup = layer.getPopup();
-            var content = popup.getContent();
-            var updatedContent = removeEmptyRowsFromPopupContent(content, feature);
-            popup.setContent(updatedContent);
-        }
-
-        function style___40_0() {
-            return {
-                pane: 'pane___40',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/__40.svg',
-            iconSize: [11.399999999999999, 11.399999999999999]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane___40');
-        map.getPane('pane___40').style.zIndex = 440;
-        map.getPane('pane___40').style['mix-blend-mode'] = 'normal';
-        var layer___40 = new L.geoJson(json___40, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json___40',
-            layerName: 'layer___40',
-            pane: 'pane___40',
-            onEachFeature: pop___40,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style___40_0(feature));
-            },
-        });
-        var cluster___40 = new L.MarkerClusterGroup({showCoverageOnHover: false,
-            spiderfyDistanceMultiplier: 2});
-        cluster___40.addLayer(layer___40);
-
-        bounds_group.addLayer(layer___40);
-        cluster___40.addTo(map);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -3620,7 +3558,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/__40.png" /> ข้อมูลทั้งหมด_สัตว์เลี้ยงลูกด้วยนม': cluster___40,'<img src="legend/_39.png" /> กระจ้อน': cluster__39,'<img src="legend/_38.png" /> กระแตเหนือ': cluster__38,'<img src="legend/_37.png" /> กระรอกท้องแดง': cluster__37,'<img src="legend/_36.png" /> กระรอกบินเล็กแก้มขาว': cluster__36,'<img src="legend/_35.png" /> กระรอกปลายหางดำ': cluster__35,'<img src="legend/_34.png" /> กระเล็นขนปลายหูสั้น': cluster__34,'<img src="legend/_33.png" /> เก้งเหนือ': cluster__33,'<img src="legend/_32.png" /> ค้างคาวขอบหูขาวกลาง': cluster__32,'<img src="legend/_31.png" /> ค้างคาวปากย่น': cluster__31,'<img src="legend/_30.png" /> ค้างคาวปีกถุงเคราดำ': cluster__30,'<img src="legend/_29.png" /> ค้างคาวเพดานเล็ก': cluster__29,'<img src="legend/_28.png" /> ค้างคาวมงกุฎจมูกยาวเล็ก': cluster__28,'<img src="legend/_27.png" /> ค้างคาวมงกุฎเทาแดง': cluster__27,'<img src="legend/_26.png" /> ค้างคาวมงกุฎปลอมเล็ก': cluster__26,'<img src="legend/_25.png" /> ค้างคาวมงกุฎมลายู': cluster__25,'<img src="legend/_24.png" /> ค้างคาวมงกุฎเล็ก': cluster__24,'<img src="legend/_23.png" /> ค้างคาวมงกุฎใหญ่': cluster__23,'<img src="legend/_22.png" /> ค้างคาวเล็บกุด': cluster__22,'<img src="legend/_21.png" /> ค้างคาวหน้ายักษ์สามหลืบ': cluster__21,'<img src="legend/_20.png" /> ชะมดแผงหางปล้อง': cluster__20,'<img src="legend/_19.png" /> ช้างป่า': cluster__19,'<img src="legend/_18.png" /> พญากระรอกดำ': cluster__18,'<img src="legend/_17.png" /> พังพอนธรรมดา': cluster__17,'<img src="legend/_16.png" /> เม่นหางพวง': cluster__16,'<img src="legend/_15.png" /> เม่นใหญ่': cluster__15,'<img src="legend/_14.png" /> แมวดาว': cluster__14,'<img src="legend/_13.png" /> ลิงกังเหนือ': cluster__13,'<img src="legend/_12.png" /> ลิงเสน': cluster__12,'<img src="legend/_11.png" /> เลียงผา': cluster__11,'<img src="legend/_10.png" /> เสือไฟ': cluster__10,'<img src="legend/_9.png" /> หนูท้องขาว': cluster__9,'<img src="legend/_8.png" /> หนูหวาย': cluster__8,'<img src="legend/_7.png" /> หมาจิ้งจอก': cluster__7,'<img src="legend/_6.png" /> หมูป่า': cluster__6,'<img src="legend/_5.png" /> อีเห็นธรรมดา': cluster__5,'<img src="legend/Province_4.png" /> Province': layer_Province_4,'<img src="legend/Station_3.png" /> Station': layer_Station_3,'<img src="legend/PipeLinePTT_2.png" /> PipeLinePTT': layer_PipeLinePTT_2,'<img src="legend/zonePipeline_1.png" /> zonePipeline': layer_zonePipeline_1,"GoogleMaps": layer_GoogleMaps_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/_39.png" /> กระจ้อน': cluster__39,'<img src="legend/_38.png" /> กระแตเหนือ': cluster__38,'<img src="legend/_37.png" /> กระรอกท้องแดง': cluster__37,'<img src="legend/_36.png" /> กระรอกบินเล็กแก้มขาว': cluster__36,'<img src="legend/_35.png" /> กระรอกปลายหางดำ': cluster__35,'<img src="legend/_34.png" /> กระเล็นขนปลายหูสั้น': cluster__34,'<img src="legend/_33.png" /> เก้งเหนือ': cluster__33,'<img src="legend/_32.png" /> ค้างคาวขอบหูขาวกลาง': cluster__32,'<img src="legend/_31.png" /> ค้างคาวปากย่น': cluster__31,'<img src="legend/_30.png" /> ค้างคาวปีกถุงเคราดำ': cluster__30,'<img src="legend/_29.png" /> ค้างคาวเพดานเล็ก': cluster__29,'<img src="legend/_28.png" /> ค้างคาวมงกุฎจมูกยาวเล็ก': cluster__28,'<img src="legend/_27.png" /> ค้างคาวมงกุฎเทาแดง': cluster__27,'<img src="legend/_26.png" /> ค้างคาวมงกุฎปลอมเล็ก': cluster__26,'<img src="legend/_25.png" /> ค้างคาวมงกุฎมลายู': cluster__25,'<img src="legend/_24.png" /> ค้างคาวมงกุฎเล็ก': cluster__24,'<img src="legend/_23.png" /> ค้างคาวมงกุฎใหญ่': cluster__23,'<img src="legend/_22.png" /> ค้างคาวเล็บกุด': cluster__22,'<img src="legend/_21.png" /> ค้างคาวหน้ายักษ์สามหลืบ': cluster__21,'<img src="legend/_20.png" /> ชะมดแผงหางปล้อง': cluster__20,'<img src="legend/_19.png" /> ช้างป่า': cluster__19,'<img src="legend/_18.png" /> พญากระรอกดำ': cluster__18,'<img src="legend/_17.png" /> พังพอนธรรมดา': cluster__17,'<img src="legend/_16.png" /> เม่นหางพวง': cluster__16,'<img src="legend/_15.png" /> เม่นใหญ่': cluster__15,'<img src="legend/_14.png" /> แมวดาว': cluster__14,'<img src="legend/_13.png" /> ลิงกังเหนือ': cluster__13,'<img src="legend/_12.png" /> ลิงเสน': cluster__12,'<img src="legend/_11.png" /> เลียงผา': cluster__11,'<img src="legend/_10.png" /> เสือไฟ': cluster__10,'<img src="legend/_9.png" /> หนูท้องขาว': cluster__9,'<img src="legend/_8.png" /> หนูหวาย': cluster__8,'<img src="legend/_7.png" /> หมาจิ้งจอก': cluster__7,'<img src="legend/_6.png" /> หมูป่า': cluster__6,'<img src="legend/_5.png" /> อีเห็นธรรมดา': cluster__5,'<img src="legend/Province_4.png" /> Province': layer_Province_4,'<img src="legend/Station_3.png" /> Station': layer_Station_3,'<img src="legend/PipeLinePTT_2.png" /> PipeLinePTT': layer_PipeLinePTT_2,'<img src="legend/zonePipeline_1.png" /> zonePipeline': layer_zonePipeline_1,"GoogleMaps": layer_GoogleMaps_0,},{collapsed:false}).addTo(map);
         setBounds();
         var i = 0;
         layer_zonePipeline_1.eachLayer(function(layer) {
@@ -3641,7 +3579,7 @@
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['pointName'] !== null?String('<div style="color: #323232; font-size: 7pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['pointName']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Station_3'});
+            layer.bindTooltip((layer.feature.properties['Stationt'] !== null?String('<div style="color: #323232; font-size: 7pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Stationt']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Station_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
